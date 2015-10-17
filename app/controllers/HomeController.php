@@ -24,21 +24,14 @@ class HomeController extends BaseController {
 	public function getAllItems($itemName){
 		$listgetItemsFromWalmart($itemName);
 	}
-	public function getItemsFromWalmart($itemName){
 
-
-	}
 	public function showWelcome()
 	{
-		$items = array();
-		//$names = array();
-		//$prices = array();
-		//$images = array();
+		/*$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.walmart.com/search/?query=milk&grid=true&');
 		$results = $crawler->filter('.tile-grid-unit-wrapper')->each(function (Crawler $node, $i) use (&$items){
 			$image = $node->filter('.js-product-image');
-			//var_dump($image->html());
 			$p = $node->filter('.tile-price');
 			$n = $node->filter('.tile-heading');
 			$price = explode(" ",$p->text());
@@ -49,13 +42,41 @@ class HomeController extends BaseController {
 			$item->price = $price[3];
 			$item->images = $image->html();
 			$items[] = $item;
-			//$images[] = $image->html();
-			//$prices[] = $price[3];
-			//$names[] = $n->text();
 		});
-		//var_dump($items);
 		for($i = 0;$i<count($items);$i++){
-				//echo "in";
+			if(strpos($items[$i]->price, '$') !== FALSE){
+				//echo "hi" . $items[$i]->name . "  <b>" . $items[$i]->price . "</b></br>";
+				//var_dump($images[$i]);
+			}else{
+				unset($items[$i]->price);
+			}
+			
+		}*/
+		//$items = $this->getItemsFromMeijer("milk");
+		$items = $this->getItemsFromWalmart("milk");
+		return View::make('hello', array('items' => $items));
+	}	
+	public function getItemsFromMeijer($itemName){
+		$items = array();
+		$client = new Client();
+		$crawler = $client->request('GET', 'http://www.meijer.com/catalog/search_command.cmd?keyword=' . $itemName);
+		//var_dump($node);
+		$results = $crawler->filter('.prod-item .instore')->each(function (Crawler $node, $i) use (&$items){
+			var_dump($node);
+			$image = $node->filter('.js-product-image');
+			$p = $node->filter('.tile-price');
+			$n = $node->filter('.tile-heading');
+			$price = explode(" ",$p->text());
+
+			if(strpos($items[$i]->price, '$') !== FALSE){
+				$item = new Item();
+				$item->name = $n->text();
+				$item->price = $price[3];
+				$item->images = $image->html();
+				$items[] = $item;
+			}
+		});
+		for($i = 0;$i<count($items);$i++){
 			if(strpos($items[$i]->price, '$') !== FALSE){
 				//echo "hi" . $items[$i]->name . "  <b>" . $items[$i]->price . "</b></br>";
 				//var_dump($images[$i]);
@@ -64,6 +85,27 @@ class HomeController extends BaseController {
 			}
 			
 		}
-		return View::make('hello', array('items' => $items));
+		return $items;
+
 	}
+
+	public function getItemsFromWalmart($itemName){
+		$items = array();
+		$client = new Client();
+		$crawler = $client->request('GET', 'http://www.walmart.com/search/?query=' . $itemName .'&grid=true&');
+		$results = $crawler->filter('.tile-grid-unit-wrapper')->each(function (Crawler $node, $i) use (&$items){
+			$image = $node->filter('.js-product-image');
+			$p = $node->filter('.tile-price');
+			$n = $node->filter('.tile-heading');
+			$price = explode(" ",$p->text());
+
+			$item = new Item();
+			$item->name = $n->text();
+			$item->price = $price[3];
+			$item->images = $image->html();
+			$items[] = $item;
+		});
+		return $items;
+	}
+
 }
