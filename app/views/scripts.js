@@ -44,7 +44,7 @@ function sort(how) {
 	}
 function makeTable() {
 	var table = document.getElementById("productTable");
-    	var items = <?php echo json_encode($items); ?>;
+    	var items = "";
  		var j = 0;
  		for(var i = 0; i < items.length; i++)
  			items[i].price = parseFloat(items[i].price + "<br>");
