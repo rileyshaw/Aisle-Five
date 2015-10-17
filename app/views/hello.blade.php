@@ -30,9 +30,12 @@ table{
     <h1><u>Groceries</u></h1>      
   </div> 
   <div class="form-group">
-    		<input type="text" id="ProductName" placeholder="Product Name">
+  	{{Form::open(array('action' => 'HomeController@submit'))}}
+  		{{Form::text('product')}}
     		<button onclick="addToTable()" type="button" class="btn btn-success">Add</button>
 			<a href="http://localhost/boilermake2015/Chart/"type="button" class="btn btn-danger">Process</a>
+		{{Form::submit('Submit')}}
+	{{Form::close()}}
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
