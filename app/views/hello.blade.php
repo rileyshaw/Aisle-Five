@@ -36,7 +36,7 @@ h1 {
 		    var cell2 = row.insertCell(1);
 		    j = 0;
 		    cell1.innerHTML = items[i].name;
-		    cell2.innerHTML = items[i].price;
+		    cell2.innerHTML = "$"+items[i].price;
 		}
 	</script>
 </table>
