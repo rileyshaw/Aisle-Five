@@ -30,13 +30,26 @@ h1 {
 		row.insertCell(2).innerHTML = "Store";
     	var items = <?php echo json_encode($items); ?>;
  		var j = 0;
+ 		for(var i = 0; i < items.length; i++)
+ 			items[i].price = parseFloat(items[i].price + "<br>");
+ 		for(var i = 0; i < items.length; i++) {
+ 			for(var j = i; j < items.length; j++) {
+ 				if(items[i].price > items[j].price) {
+ 					temp = items[i];
+ 					items[i] = items[j];
+ 					items[j] = temp;
+ 				}
+ 			}
+ 		}
     	for(var i = 0; i < items.length; i++) {
-    	    var row = table.insertRow(j+1);
+    	    var row = table.insertRow(1+i);
 		    var cell1 = row.insertCell(0);
 		    var cell2 = row.insertCell(1);
+		    var cell3 = row.insertCell(2);
 		    j = 0;
 		    cell1.innerHTML = items[i].name;
 		    cell2.innerHTML = "$"+items[i].price;
+		    cell3.innerHTML = items[i].storeName;
 		}
 	</script>
 </table>
