@@ -25,16 +25,16 @@ table{
 </head>
 <body>
 
-<div class="container">
+<div class="container">_
   <div class="jumbotron">
     <h1><u>Groceries</u></h1>      
   </div> 
   <div class="form-group">
-  	{{Form::open(array('action' => 'HomeController@submit'))}}
+  	{{Form::open(array('action' => 'HomeController@addItem'))}}
   		{{Form::text('product')}}
     		<button onclick="addToTable()" type="button" class="btn btn-success">Add</button>
 			<a href="http://localhost/boilermake2015/Chart/"type="button" class="btn btn-danger">Process</a>
-		{{Form::submit('Submit')}}
+		{{Form::submit('Add2', array('class' => 'btn btn-success'))}}
 	{{Form::close()}}
 	</div>   
 	<div class="table-responsive">
