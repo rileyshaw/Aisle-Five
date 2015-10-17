@@ -36,8 +36,8 @@ class HomeController extends BaseController {
 	{
 		echo "try " + Input::get('product');
 		$items = $this->getItemsFromTarget(Input::get('product'));
-		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
-		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
+		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return json_encode($items);
 	}	
 	public function getItemsFromMeijer($itemName){
@@ -87,7 +87,7 @@ class HomeController extends BaseController {
 							$item = new Item();
 							$item->name = $n;
 							$item->price = substr($p,1);
-							$item->images = $noder2->html();
+							//$item->images = $noder2->html();
 							$item->storeName = "Target";
 							$items[] = $item;	
 						}
