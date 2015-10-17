@@ -48,7 +48,7 @@ class HomeController extends BaseController {
 				//echo "hi" . $items[$i]->name . "  <b>" . $items[$i]->price . "</b></br>";
 				//var_dump($images[$i]);
 			}else{
-				unset($items[$i]->price);
+				unset($items[$i]);
 			}
 			
 		}*/
