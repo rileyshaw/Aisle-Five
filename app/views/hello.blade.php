@@ -13,7 +13,6 @@ h1 {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 
 <div class="container">
@@ -21,30 +20,23 @@ h1 {
     <h1><u>Groceries</u></h1>      
   </div>    
 </div>
-<table class="table table-hover"> 
-  <tr>
-    <th>Product Name</th>
-    <th>Price</th>
-    <th>Store</th>
-  </tr>
-  <tr>
-    <td><?php echo $items[1]->name ?></td>
-    <script>
-		function addToTable() {
-			if(document.getElementById("ProductName").value != "") {
-		    var table = document.getElementById("productTable");
-		    var row = table.insertRow(1);
+<table id="productTable" class="table table-hover"> 
+	<div class="welcome">
+	<script>
+		var table = document.getElementById("productTable");
+		var row = table.insertRow(0);
+		row.insertCell(0).innerHTML = "Product Name";
+		row.insertCell(1).innerHTML = "Price";
+		row.insertCell(2).innerHTML = "Store";
+    	var items = <?php echo json_encode($items); ?>;
+    	for(var i = 0; i < items.length; i++) {
+		    var row = table.insertRow(1+i);
 		    var cell1 = row.insertCell(0);
 		    var cell2 = row.insertCell(1);
-		    cell1.innerHTML = <?php echo $items[1]->name ?>;
-		    cell2.innerHTML = <?php echo $items[1]->price ?>;
-		    document.getElementById("ProductName").value = "";
+		    cell1.innerHTML = items[i].name;
+		    cell2.innerHTML = items[i].price;
 		}
-	}
 	</script>
-    <td>$2.94</td>
-    <td>Walmart</td>
-  </tr>
 </table>
 </body>
 <body>
@@ -54,11 +46,8 @@ h1 {
 	{{ HTML::style('css/style.css'); }}
 </head>
 <body>
-	<div class="welcome">
 		<?php
 			for($i = 0; $i< 12; $i++){
-				//echo "<h2>Item " . $names[$i] . " </h2>";
-				//echo $images[$i];
 			}
 		?>
 	</div>
