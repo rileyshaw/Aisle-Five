@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function getAllItems($itemName){
+	public static function getAllItems($itemName){
 		//$this->getItemsFromWalmart($itemName);
 echo "Inside";
 		//$this->getItemsFromMeijer($itemName);
