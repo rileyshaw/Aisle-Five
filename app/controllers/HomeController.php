@@ -61,6 +61,6 @@ class HomeController extends BaseController {
 			}
 			
 		}
-		return View::make('hello', array('names' => ),array('images' => $images),array('prices' => $prices));
+		return View::make('hello', array('items' => $items));
 	}
 }
