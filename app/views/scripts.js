@@ -3,8 +3,6 @@ function sort(how) {
 	for(var i = 0; i < items.length; i++) 
 		table.deleteRow(1);	
 	if(how == 1) {	
-		for(var i = 0; i < items.length; i++)
- 			items[i].price = parseFloat(items[i].price + "<br>");
  			for(var i = 0; i < items.length; i++) {
  				for(var j = i; j < items.length; j++) {
  					if(items[i]['price'] > items[j]['price']) {

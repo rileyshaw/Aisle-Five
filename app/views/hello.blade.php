@@ -76,8 +76,6 @@ table{
 	function makeTable() {
 		var table = document.getElementById("productTable");
  		var j = 0;
- 		for(var i = 0; i < items.length; i++)
- 			items[i].price = parseFloat(items[i]['price'] + "<br>");
  		for(var i = 0; i < items.length; i++) {
  			for(var j = i; j < items.length; j++) {
  				if(items[i]['price'] > items[j]['price']) {
