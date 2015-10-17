@@ -29,6 +29,19 @@ h1 {
   </tr>
   <tr>
     <td><?php echo $items[1]->name ?></td>
+    <script>
+		function addToTable() {
+			if(document.getElementById("ProductName").value != "") {
+		    var table = document.getElementById("productTable");
+		    var row = table.insertRow(1);
+		    var cell1 = row.insertCell(0);
+		    var cell2 = row.insertCell(1);
+		    cell1.innerHTML = <?php echo $items[1]->name ?>;
+		    cell2.innerHTML = <?php echo $items[1]->price ?>;
+		    document.getElementById("ProductName").value = "";
+		}
+	}
+	</script>
     <td>$2.94</td>
     <td>Walmart</td>
   </tr>
