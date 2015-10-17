@@ -15,12 +15,24 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	class Item{
+		public $name;
+		public $price;
+		public $images;
+	}
+	public function getAllItems($itemName)){
+		$listgetItemsFromWalmart($itemName);
+	}
+	public function getItemsFromWalmart($itemName){
 
+
+	}
 	public function showWelcome()
 	{
-		$names = array();
-		$prices = array();
-		$images = array();
+		$items = array();
+		//$names = array();
+		//$prices = array();
+		//$images = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.walmart.com/search/?query=milk&grid=true&');
 		$results = $crawler->filter('.tile-grid-unit-wrapper')->each(function (Crawler $node, $i) use (&$prices, &$names, &$images){
@@ -29,9 +41,16 @@ class HomeController extends BaseController {
 			$p = $node->filter('.tile-price');
 			$n = $node->filter('.tile-heading');
 			$price = explode(" ",$p->text());
-			$images[] = $image->html();
-			$prices[] = $price[3];
-			$names[] = $n->text();
+
+
+			$item = new Item();
+			$item->name = $n->text();
+			$item->price = $price[3];
+			$item->images = $image->html();
+			$items[] = $item;
+			//$images[] = $image->html();
+			//$prices[] = $price[3];
+			//$names[] = $n->text();
 		});
 		for($i = 0;$i<count($prices);$i++){
 			if(strpos($prices[$i], '$') !== FALSE){
@@ -42,6 +61,6 @@ class HomeController extends BaseController {
 			}
 			
 		}
-		return View::make('hello', array('names' => $names),array('images' => $images));
+		return View::make('hello', array('names' => ),array('images' => $images),array('prices' => $prices));
 	}
 }
