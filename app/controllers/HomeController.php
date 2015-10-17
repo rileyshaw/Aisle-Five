@@ -122,7 +122,6 @@ class HomeController extends BaseController {
 				$item = new Item();
 				$item->name = $n->text();
 				$item->price = substr($price[3],1);
-				var_dump($item->price);
 				$item->images = $image->html();
 				$item->storeName = "Walmart";
 				$items[] = $item;	
