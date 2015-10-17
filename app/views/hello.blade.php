@@ -57,17 +57,6 @@ table{
     <h1>Groceries</h1>      
   </div> 
   <div class="form-group">
-<<<<<<< HEAD
-  	{{ Form::open(array('action' => 'HomeController@addItem'))}}
-
-	{{ Form::text('product') }}
-
-    		<button onclick="makeTable()" type="button" class="btn btn-success">Add</button>
-			<button onclick="makeTable()" type="button" class="btn btn-success">Process</button>
-
-{{ Form::submit('enter')}}
-{{ Form::close() }}
-=======
   	{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
   		{{Form::text('product')}}
     		<button id = "AddItem" type="button" class="btn btn-success">Add</button>
@@ -82,7 +71,6 @@ table{
 			<!--<a href="http://localhost/boilermake2015/Chart/"type="button" class="btn btn-danger">Process</a>-->
 		{{Form::submit('Add2', array('class' => 'btn btn-success'))}}
 	{{Form::close()}}
->>>>>>> origin/master
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
