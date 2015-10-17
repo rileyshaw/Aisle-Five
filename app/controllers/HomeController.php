@@ -28,34 +28,10 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		/*$items = array();
-		$client = new Client();
-		$crawler = $client->request('GET', 'http://www.walmart.com/search/?query=milk&grid=true&');
-		$results = $crawler->filter('.tile-grid-unit-wrapper')->each(function (Crawler $node, $i) use (&$items){
-			$image = $node->filter('.js-product-image');
-			$p = $node->filter('.tile-price');
-			$n = $node->filter('.tile-heading');
-			$price = explode(" ",$p->text());
-
-
-			$item = new Item();
-			$item->name = $n->text();
-			$item->price = $price[3];
-			$item->images = $image->html();
-			$items[] = $item;
-		});
-		for($i = 0;$i<count($items);$i++){
-			if(strpos($items[$i]->price, '$') !== FALSE){
-				//echo "hi" . $items[$i]->name . "  <b>" . $items[$i]->price . "</b></br>";
-				//var_dump($images[$i]);
-			}else{
-				unset($items[$i]);
-			}
-			
-		}*/
-		//$items = $this->getItemsFromMeijer("milk");
-		$items = $this->getItemsFromWalmart("milk");
+		$items = $this->getItemsFromMeijer("milk");
 		return View::make('hello', array('items' => $items));
+		//$items = $this->getItemsFromWalmart("milk");
+		//return View::make('hello', array('items' => $items));
 	}	
 	public function getItemsFromMeijer($itemName){
 		$items = array();
@@ -67,23 +43,26 @@ class HomeController extends BaseController {
 			$image = $node->filter('.prod-img')->attr('src');
 			$image = '<img class="prod-img" src="//' . $image . '">';
 			$n = $node->filter('.prod-title')->text();
-			$p = $node->filter('.prod-price-sale');
-			//echo $p->text() . '</br>';
-
-			if(strcmp($p->text(),'') == 16){
+			$p = trim($node->filter('.prod-price-sale')->text());
+			$p = substr($p,1,strlen($p)-4);
+			if(strcmp($p,'') == 0){
 				$sale = trim($node->filter('.prod-price-sale .prod-price-sort')->text());	
 				if($sale[0] == 'B'){
 					//var_dump($sale);
 					$num = substr($sale, 4,1);
 					$total = substr($sale, 11,strlen($sale));
-					var_dump($num);
-					var_dump($total);
-					$total = $total / $num;
-					var_dump($total);
+					$total = number_format($total / $num,2);
+					$p = $total;
+				}else{
+					$p = substr($sale, 1,strlen($sale)-4);
 				}
-				//var_dump(trim($sale));
 			}
-			
+			$item = new Item();
+			$item->name = $n;
+			$item->price = $p;
+			$item->images = $image;
+			$item->storeName = "Meijer";
+			$items[] = $item;	
 			//$p = substr($p,0,strlen($p)-3);
 
 			//if(!empty($sale = $node->filter('.prod-price-sale .prod-price-sort'))){
