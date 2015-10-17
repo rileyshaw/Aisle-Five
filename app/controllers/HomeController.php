@@ -34,10 +34,7 @@ class HomeController extends BaseController {
 	}
 	public function addItem()
 	{
-<<<<<<< HEAD
 		echo "try " + Input::get('product');
-=======
->>>>>>> origin/master
 		$items = $this->getItemsFromTarget(Input::get('product'));
 		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
 		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
