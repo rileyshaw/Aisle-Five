@@ -28,16 +28,17 @@ class HomeController extends BaseController {
 		//$this->getItemsFromMeijer($itemName);
 		
 	}
-	public function submit() {
-		$input = Input::get('product');
-
-	}
-	public function showWelcome()
+	public function addItem()
 	{
 
-		$items = $this->getItemsFromTarget($input);
+<<<<<<< HEAD
+		$items = $this->getItemsFromTarget("milk");
+=======
+		$items = $this->getItemsFromTarget(Input::get('product'));
+>>>>>>> origin/master
 		
-		$items = array_merge($items,$this->getItemsFromMeijer("milk"));
+		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return View::make('hello', array('items' => $items));
 		//return View::make('hello', array('items' => $items));
 		//$items = $this->getItemsFromWalmart("milk");

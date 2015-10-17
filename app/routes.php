@@ -11,5 +11,5 @@
 |
 */
 	
-Route::get('/', 'HomeController@showWelcome');
-Route::post('submit', 'HomeController@submit');
+Route::get('/', 'HomeController@addItem');
+Route::post('addItem', 'HomeController@addItem');
