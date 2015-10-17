@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,14 +24,12 @@ table{
 	background-color: white;
 }
 </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/boilermake/app/views/scripts.js"></script>
   <script>
 				$(document).ready(function(){
 					$('#add').submit(function(e){
-			
-						console.log("Clicked");
 						e.preventDefault();
 						var $form = $( this ),
 						dataFrom = $form.serialize(),
@@ -43,12 +40,16 @@ table{
 							data: dataFrom,
 							type: method,
 							success: function (response) {
-								console.log("here");
+								temp = response.substring(1);
+								console.log("items");
+								items = JSON.parse(temp);
+								console.log(items[0]['price']);
+								makeTable();
 							}
 						});
 					});
 				});
-				</script>
+	</script>
 
 </head>
 <body>
@@ -60,15 +61,6 @@ table{
   	{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
   		{{Form::text('product')}}
     		<button id = "AddItem" type="button" class="btn btn-success">Add</button>
-
-
-
-
-
-
-
-
-			<!--<a href="http://localhost/boilermake2015/Chart/"type="button" class="btn btn-danger">Process</a>-->
 		{{Form::submit('Add2', array('class' => 'btn btn-success'))}}
 	{{Form::close()}}
 	</div>   
@@ -81,18 +73,14 @@ table{
 		<td onclick="sort(3)">Store</td>
 	</tr>
 	<script>
-	var items = <?php echo json_encode($items); ?>;
-	document.write(items[1].name);
-	makeTable();
 	function makeTable() {
 		var table = document.getElementById("productTable");
-		document.write(items[1].name);
  		var j = 0;
  		for(var i = 0; i < items.length; i++)
- 			items[i].price = parseFloat(items[i].price + "<br>");
+ 			items[i].price = parseFloat(items[i]['price'] + "<br>");
  		for(var i = 0; i < items.length; i++) {
  			for(var j = i; j < items.length; j++) {
- 				if(items[i].price > items[j].price) {
+ 				if(items[i]['price'] > items[j]['price']) {
  					temp = items[i];
  					items[i] = items[j];
  					items[j] = temp;
@@ -100,7 +88,7 @@ table{
  			}
  		}
     	for(var i = 0; i < items.length; i++) 
-		    $('table tr:last').after("<tr><td class='deleterow'><div class='glyphicon glyphicon-remove'></div></td>"+"<td>"+items[i].name +"</td><td>"+"$"+items[i].price +"</td><td>"+items[i].storeName+"</tr>");
+		    $('table tr:last').after("<tr><td class='deleterow'><div class='glyphicon glyphicon-remove'></div></td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
 		$(".deleterow").on("click", function(){
 		var $killrow = $(this).parent('tr');
     	$killrow.addClass("danger");
@@ -112,7 +100,6 @@ table{
 	function addToTable() {
 		document.write(items);
 		document.write("items");
-		var items = <?php echo json_encode($items); ?>;
 		var table = document.getElementById("productTable");
 			table.deleteRow(0);			
 		}
