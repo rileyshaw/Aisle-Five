@@ -8,7 +8,7 @@
 <body>
 	<div class="welcome">
 		<?php
-			for($i = 0; $i< 10; $i++){
+			for($i = 0; $i< 12; $i++){
 				echo "<h2>Item " . $names[$i] . " </h2>";
 				echo $images[$i];
 			}
@@ -16,3 +16,4 @@
 	</div>
 </body>
 </html>
+<!--More teerasfdsasts-->
