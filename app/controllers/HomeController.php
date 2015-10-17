@@ -69,6 +69,8 @@ class HomeController extends BaseController {
 			$price = explode(" ",$p->text());
 
 			if(strpos($items[$i]->price, '$') !== FALSE){
+				
+			}else{
 				$item = new Item();
 				$item->name = $n->text();
 				$item->price = $price[3];
