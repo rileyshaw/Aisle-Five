@@ -1,6 +1,7 @@
 <?php
 use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
+
 class Item{
 		public $name;
 		public $price;
@@ -28,26 +29,25 @@ class HomeController extends BaseController {
 		//$this->getItemsFromMeijer($itemName);
 		
 	}
+	public function showHome(){
+		return View::make('hello');
+	}
 	public function addItem()
 	{
+<<<<<<< HEAD
 		echo "try " + Input::get('product');
+=======
+>>>>>>> origin/master
 		$items = $this->getItemsFromTarget(Input::get('product'));
-		
-		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
-		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
-		return View::make('hello', array('items' => $items));
-		//return View::make('hello', array('items' => $items));
-		//$items = $this->getItemsFromWalmart("milk");
-		//return View::make('hello', array('items' => $items));
+		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
+		return json_encode($items);
 	}	
 	public function getItemsFromMeijer($itemName){
 		$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.meijer.com/catalog/search_command.cmd?keyword=' . $itemName);
-		
-		//var_dump($crawler->html());
 		$results = $crawler->filter('.prod-item')->each(function (Crawler $node, $i) use (&$items){
-			
 			$image = $node->filter('.prod-img')->attr('src');
 			$image = '<img class="prod-img" src="//' . $image . '">';
 			$n = $node->filter('.prod-title')->text();
@@ -56,7 +56,6 @@ class HomeController extends BaseController {
 			if(strcmp($p,'') == 0){
 				$sale = trim($node->filter('.prod-price-sale .prod-price-sort')->text());	
 				if($sale[0] == 'B'){
-					//var_dump($sale);
 					$num = substr($sale, 4,1);
 					$total = substr($sale, 11,strlen($sale));
 					$total = number_format($total / $num,2);
@@ -71,26 +70,6 @@ class HomeController extends BaseController {
 			$item->images = $image;
 			$item->storeName = "Meijer";
 			$items[] = $item;	
-			//$p = substr($p,0,strlen($p)-3);
-
-			//if(!empty($sale = $node->filter('.prod-price-sale .prod-price-sort'))){
-			//	var_dump($sale->html());
-			//}
-
-		
-			//var_dump($p->html());
-			//$p = $node->filter('.tile-price');
-			//$n = $node->filter('.tile-heading');
-			/*$price = explode(" ",$p->text());
-			if(strpos($price[3], '$') !== FALSE){
-				$item = new Item();
-				$item->name = $n->text();
-				$item->price = $price[3];
-				$item->images = $image->html();
-				$item->storeName = "Meijer";
-				$items[] = $item;	
-			}*/
-		
 		});
 		return $items;
 
@@ -101,7 +80,6 @@ class HomeController extends BaseController {
 		$crawler = $client->request('GET', 'http://www.target.com/s?searchTerm=' . $itemName .' &category=0%7CAll%7Cmatchallpartial%7Call+categories&lnk=snav_sbox_milk' . $itemName .'&grid=true&');
 		$results = $crawler->filter('.tileRowContainer')->each(function (Crawler $node, $i) use (&$items){
 			$row = $node->filter('li')->each(function (Crawler $noder, $i) use (&$items){
-				//var_dump($node->html());
 				if($noder->filter('.tileInfo')->count()){
 					if( $noder->filter('.tileInfo')->count()){
 						$noder1 = $noder->filter('.tileInfo');

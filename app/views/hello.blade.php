@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,6 +28,28 @@ table{
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/boilermake/app/views/scripts.js"></script>
+  <script>
+				$(document).ready(function(){
+					$('#add').submit(function(e){
+			
+						console.log("Clicked");
+						e.preventDefault();
+						var $form = $( this ),
+						dataFrom = $form.serialize(),
+						url = $form.attr( "action"),
+						method = $form.attr( "method" );
+						$.ajax({
+							url: "{{action('HomeController@addItem')}}",
+							data: dataFrom,
+							type: method,
+							success: function (response) {
+								console.log("here");
+							}
+						});
+					});
+				});
+				</script>
+
 </head>
 <body>
 <div class="container">_
@@ -34,6 +57,7 @@ table{
     <h1>Groceries</h1>      
   </div> 
   <div class="form-group">
+<<<<<<< HEAD
   	{{ Form::open(array('action' => 'HomeController@addItem'))}}
 
 	{{ Form::text('product') }}
@@ -43,6 +67,22 @@ table{
 
 {{ Form::submit('enter')}}
 {{ Form::close() }}
+=======
+  	{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
+  		{{Form::text('product')}}
+    		<button id = "AddItem" type="button" class="btn btn-success">Add</button>
+
+
+
+
+
+
+
+
+			<!--<a href="http://localhost/boilermake2015/Chart/"type="button" class="btn btn-danger">Process</a>-->
+		{{Form::submit('Add2', array('class' => 'btn btn-success'))}}
+	{{Form::close()}}
+>>>>>>> origin/master
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
