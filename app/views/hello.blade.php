@@ -28,7 +28,7 @@ h1 {
     <th>Store</th>
   </tr>
   <tr>
-    <td><?php echo $names[1] ?></td>
+    <td><?php echo $items[1]->name ?></td>
     <td>$2.94</td>
     <td>Walmart</td>
   </tr>
