@@ -32,7 +32,11 @@ class HomeController extends BaseController {
 	{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		$items = $this->getItemsFromTarget("milk");
+=======
+		$items = $this->getItemsFromTarget(Input::get('product'));
+>>>>>>> origin/master
 =======
 		$items = $this->getItemsFromTarget(Input::get('product'));
 >>>>>>> origin/master
