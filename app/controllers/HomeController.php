@@ -5,6 +5,7 @@ class Item{
 		public $name;
 		public $price;
 		public $images;
+		public $storeName;
 }
 class HomeController extends BaseController {
 	
@@ -60,25 +61,50 @@ class HomeController extends BaseController {
 		$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.meijer.com/catalog/search_command.cmd?keyword=' . $itemName);
-		//var_dump($node);
-		$results = $crawler->filter('.prod-item .instore')->each(function (Crawler $node, $i) use (&$items){
-			var_dump($node);
-			$image = $node->filter('.js-product-image');
-			$p = $node->filter('.tile-price');
-			$n = $node->filter('.tile-heading');
-			$price = explode(" ",$p->text());
-			var_dump($price);
-		
-		});
-		for($i = 0;$i<count($items);$i++){
-			if(strpos($items[$i]->price, '$') !== FALSE){
-				//echo "hi" . $items[$i]->name . "  <b>" . $items[$i]->price . "</b></br>";
-				//var_dump($images[$i]);
-			}else{
-				unset($items[$i]->price);
+		//var_dump($crawler->html());
+		$results = $crawler->filter('.prod-item')->each(function (Crawler $node, $i) use (&$items){
+			
+			$image = $node->filter('.prod-img')->attr('src');
+			$image = '<img class="prod-img" src="//' . $image . '">';
+			$n = $node->filter('.prod-title')->text();
+			$p = $node->filter('.prod-price-sale');
+			//echo $p->text() . '</br>';
+
+			if(strcmp($p->text(),'') == 16){
+				$sale = trim($node->filter('.prod-price-sale .prod-price-sort')->text());	
+				if($sale[0] == 'B'){
+					//var_dump($sale);
+					$num = substr($sale, 4,1);
+					$total = substr($sale, 11,strlen($sale));
+					var_dump($num);
+					var_dump($total);
+					$total = $total / $num;
+					var_dump($total);
+				}
+				//var_dump(trim($sale));
 			}
 			
-		}
+			//$p = substr($p,0,strlen($p)-3);
+
+			//if(!empty($sale = $node->filter('.prod-price-sale .prod-price-sort'))){
+			//	var_dump($sale->html());
+			//}
+
+		
+			//var_dump($p->html());
+			//$p = $node->filter('.tile-price');
+			//$n = $node->filter('.tile-heading');
+			/*$price = explode(" ",$p->text());
+			if(strpos($price[3], '$') !== FALSE){
+				$item = new Item();
+				$item->name = $n->text();
+				$item->price = $price[3];
+				$item->images = $image->html();
+				$item->storeName = "Meijer";
+				$items[] = $item;	
+			}*/
+		
+		});
 		return $items;
 
 	}
@@ -95,8 +121,10 @@ class HomeController extends BaseController {
 			if(strpos($price[3], '$') !== FALSE){
 				$item = new Item();
 				$item->name = $n->text();
-				$item->price = $price[3];
+				$item->price = substr($price[3],1);
+				var_dump($item->price);
 				$item->images = $image->html();
+				$item->storeName = "Walmart";
 				$items[] = $item;	
 			}
 		});
