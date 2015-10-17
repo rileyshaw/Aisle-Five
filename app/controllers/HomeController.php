@@ -67,16 +67,8 @@ class HomeController extends BaseController {
 			$p = $node->filter('.tile-price');
 			$n = $node->filter('.tile-heading');
 			$price = explode(" ",$p->text());
-
-			if(strpos($item->price, '$') !== FALSE){
-				
-			}else{
-				$item = new Item();
-				$item->name = $n->text();
-				$item->price = $price[3];
-				$item->images = $image->html();
-				$items[] = $item;
-			}
+			var_dump($price);
+		
 		});
 		for($i = 0;$i<count($items);$i++){
 			if(strpos($items[$i]->price, '$') !== FALSE){
@@ -100,12 +92,13 @@ class HomeController extends BaseController {
 			$p = $node->filter('.tile-price');
 			$n = $node->filter('.tile-heading');
 			$price = explode(" ",$p->text());
-
-			$item = new Item();
-			$item->name = $n->text();
-			$item->price = $price[3];
-			$item->images = $image->html();
-			$items[] = $item;
+			if(strpos($price[3], '$') !== FALSE){
+				$item = new Item();
+				$item->name = $n->text();
+				$item->price = $price[3];
+				$item->images = $image->html();
+				$items[] = $item;	
+			}
 		});
 		return $items;
 	}
