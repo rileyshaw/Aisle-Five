@@ -23,15 +23,20 @@ class HomeController extends BaseController {
 	*/
 
 	public function getAllItems($itemName){
-		$listgetItemsFromWalmart($itemName);
+		//$this->getItemsFromWalmart($itemName);
+echo "Inside";
+		//$this->getItemsFromMeijer($itemName);
+		
 	}
-
 	public function showWelcome()
 	{
-		$items = $this->getItemsFromMeijer("milk");
-		return View::make('hello', array('items' => $items));
-		//$items = $this->getItemsFromWalmart("milk");
+
+		//$items = $this->getItemsFromTarget("milk");
 		//return View::make('hello', array('items' => $items));
+		//$items = $this->getItemsFromMeijer("sour cream");
+		//return View::make('hello', array('items' => $items));
+		$items = $this->getItemsFromWalmart("milk");
+		return View::make('hello', array('items' => $items));
 	}	
 	public function getItemsFromMeijer($itemName){
 		$items = array();
@@ -86,6 +91,34 @@ class HomeController extends BaseController {
 		});
 		return $items;
 
+	}
+	public function getItemsFromTarget($itemName){
+		$items = array();
+		$client = new Client();
+		$crawler = $client->request('GET', 'http://www.target.com/s?searchTerm=' . $itemName .' &category=0%7CAll%7Cmatchallpartial%7Call+categories&lnk=snav_sbox_milk' . $itemName .'&grid=true&');
+		$results = $crawler->filter('.tileRowContainer')->each(function (Crawler $node, $i) use (&$items){
+			$row = $node->filter('.tile')->each(function (Crawler $noder, $i) use (&$items){
+				var_dump($noder->html());
+				$image = $noder->filter('.tileInfo'); 
+				//var_dump($image->html());
+				//var_dump($image);
+				//var_dump($noder->html());
+			});
+
+			/*$image = $node->filter('.js-product-image');
+			$p = $node->filter('.tile-price');
+			$n = $node->filter('.tile-heading');
+			$price = explode(" ",$p->text());
+			if(strpos($price[3], '$') !== FALSE){
+				$item = new Item();
+				$item->name = $n->text();
+				$item->price = substr($price[3],1);
+				$item->images = $image->html();
+				$item->storeName = "Walmart";
+				$items[] = $item;	
+			}*/
+		});
+		return $items;
 	}
 
 	public function getItemsFromWalmart($itemName){
