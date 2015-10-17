@@ -68,7 +68,7 @@ class HomeController extends BaseController {
 			$n = $node->filter('.tile-heading');
 			$price = explode(" ",$p->text());
 
-			if(strpos($items[$i]->price, '$') !== FALSE){
+			if(strpos($item->price, '$') !== FALSE){
 				
 			}else{
 				$item = new Item();
