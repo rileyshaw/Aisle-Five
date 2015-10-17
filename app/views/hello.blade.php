@@ -21,6 +21,7 @@ table{
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/boilermake/app/views/scripts.js"></script>
 </head>
 <body>
 
@@ -35,13 +36,20 @@ table{
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
+	<tr>
+		<td></td>
+		<td onclick="sort(2)">Product</td>
+		<td onclick="sort(1)">Price</td>
+		<td>Store</td>
+	</tr>
 	<script>
 		var table = document.getElementById("productTable");
-		var row = table.insertRow(0);
-		row.insertCell(0).innerHTML = "";
-		row.insertCell(1).innerHTML = "Product Name";
-		row.insertCell(2).innerHTML = "Price";
-		row.insertCell(3).innerHTML = "Store";
+		//var row = table.insertRow(0);
+		 //$('table tr:last').after("<tr><td><button class=""editbtn"">edit</button></td><td><button class=""Product Name"">edit</button></td><td><button class=""Price"">edit</button></td><td><button class=""Store"">edit</button></td></tr>");
+		//row.insertCell(0).innerHTML = "";
+		//row.insertCell(1).innerHTML = "Product Name";
+		//row.insertCell(2).innerHTML = "Price";
+		//row.insertCell(3).innerHTML = "Store";
     	var items = <?php echo json_encode($items); ?>;
  		var j = 0;
  		for(var i = 0; i < items.length; i++)
@@ -57,22 +65,7 @@ table{
  		}
     	for(var i = 0; i < items.length; i++) 
 		    $('table tr:last').after("<tr><td class='deleterow'><div class='glyphicon glyphicon-remove'></div></td>"+"<td>"+items[i].name +"</td><td>"+"$"+items[i].price +"</td><td>"+items[i].storeName+"</tr>");
-	</script>
-</table>
-</div>
-</body>
-<body>
-	<script>
-		function sort(how) {
-			if(document.getElementById("ProductName").value != "") {
-		    var table = document.getElementById("productTable");
-		    var row = table.insertRow(1);
-		    var cell1 = row.insertCell(0);
-		    cell1.innerHTML = document.getElementById("ProductName").value;
-		    document.getElementById("ProductName").value = "";
-		}
-	}
-	$(".deleterow").on("click", function(){
+		$(".deleterow").on("click", function(){
 		var $killrow = $(this).parent('tr');
     	$killrow.addClass("danger");
 			$killrow.fadeOut(2000, function(){
@@ -80,12 +73,10 @@ table{
 			});
 	});
 	</script>
-	<script>
-		function addToTable() {
-			HomeController::getAllItems(document.getElementById("ProductName").value);
-		}
-	}
-	</script>
+</table>
+</div>
+</body>
+<body>
 <head>
 	<meta charset="UTF-8">
 	<title>Laravel PHP Framework</title>
