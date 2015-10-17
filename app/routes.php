@@ -10,6 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-	
-Route::get('/', 'HomeController@addItem');
-Route::post('addItem', 'HomeController@addItem');
+
+Route::get('/', 'HomeController@showHome');
+Route::post('submit', 'HomeController@addItem');
