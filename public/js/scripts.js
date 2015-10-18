@@ -1,34 +1,3 @@
-$(document).ready(function(){
-	$('#add').submit(function(e){
-		document.getElementById('Loading').innerHTML = 'Loading...';
-		e.preventDefault();
-		var $form = $( this ), dataFrom = $form.serialize(), url = $form.attr( "action"), method = $form.attr( "method" );
-		$.ajax({
-			xhrFields: {
-				onprogress: function (e) {
-					console.log("hasdfere");
-						if (e.lengthComputable) {
-							console.log("he324re");
-							console.log(e.loaded / e.total * 100 + '%');
-						}
-					}
-				},
-				type: method,
-		    	url: "{{action('HomeController@addItem')}}",
-				data: dataFrom,
-				success: function (response) {
-					document.getElementById('Loading').innerHTML = '';
-					temp = response.substring(1);
-					items = JSON.parse(temp);
-					makeTable();
-				}
-			});
-	});
-});
-
-
-
-
 function sort(how) {
 	var table = document.getElementById("productTable");
 	for(var i = 0; i < items.length; i++) 
