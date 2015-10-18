@@ -101,7 +101,7 @@ class HomeController extends BaseController {
 							$item = new Item();
 							$item->name = $n;
 							$item->price = substr($p,1);
-							$item->images = $noder2->attr('data-default-image');
+							$item->images = $noder2->html();
 							$item->storeName = "Target";
 							$items[] = $item;	
 						}
