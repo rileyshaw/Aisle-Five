@@ -51,9 +51,9 @@ class HomeController extends BaseController {
 			$image = '<img class="prod-img" src="//' . $image . '">';
 			$n = $node->filter('.prod-title')->text();
 			$p = trim($node->filter('.prod-price-sale')->text());
-			$p = substr($p,1,strlen($p)-4);
-			
-			if(strcmp($p,'') == 0){
+			$p = substr($p,0,strlen($p)-3);
+
+			if(strcmp($p,'S') == 0){
 				$sale = trim($node->filter('.prod-price-sale .prod-price-sort')->text());	
 				if($sale[0] == 'B'){
 					$num = substr($sale, 4,1);
@@ -63,13 +63,24 @@ class HomeController extends BaseController {
 				}else{
 					$p = substr($sale, 1,strlen($sale)-4);
 				}
+			}else{
 			}
-			$item = new Item();
-			$item->name = $n;
-			$item->price = $p;
-			$item->images = $image;
-			$item->storeName = "Meijer";
-			$items[] = $item;	
+			if($p[0] != 'B'){
+				if(strlen($p) == 3){
+					$p = $p . "0";
+				}else if(strlen($p) == 2){
+					$p = $p . "00";
+				}
+				if($p[0] == '$'){
+					$p = substr($p, 1);
+				}
+				$item = new Item();
+				$item->name = $n;
+				$item->price = $p;
+				$item->images = $image;
+				$item->storeName = "Meijer";
+				$items[] = $item;	
+			}
 		});
 		return $items;
 
