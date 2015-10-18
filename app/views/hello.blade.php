@@ -16,14 +16,12 @@
 		e.preventDefault();
 		var $form = $( this ), dataFrom = $form.serialize(), url = $form.attr( "action"), method = $form.attr( "method" );
 		$.ajax({
-			xhrFields: {
 				onprogress: function (e) {
 						if (e.lengthComputable) {
 							console.log("he324re");
 							console.log(e.loaded / e.total * 100 + '%');
 						}
-					}
-				},
+					},
 				type: method,
 		    	url: "{{action('HomeController@addItem')}}",
 				data: dataFrom,
@@ -34,7 +32,7 @@
 					items = [];
 					items = JSON.parse(temp);
 					makeTable();
-				}
+				},
 			});
 	});
 });			
@@ -52,7 +50,6 @@
 		{{Form::submit('Add', array('class' => 'btn btn-success'))}}
 		<label id="Loading"></label>
 	{{Form::close()}}
-	<button onclick='clearList()'>Clear</button>
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 

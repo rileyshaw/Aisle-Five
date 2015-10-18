@@ -34,6 +34,7 @@ class HomeController extends BaseController {
 	}
 	public function addItem()
 	{
+		echo "try " + Input::get('product');
 		unset($items);
 		$items = array();
 		$items = $this->getItemsFromTarget(Input::get('product'));
