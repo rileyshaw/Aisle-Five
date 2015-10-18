@@ -106,7 +106,7 @@ class HomeController extends BaseController {
 						if($noder1->filter('.price')->count()){
 							$n = trim($noder1->filter('.productClick')->text());
 							$p = trim($noder1->filter('.price')->text());
-							$noder2 = $noder->filter('.tileImage');
+							$noder2 = ($noder->filter('.productClick'));
 							if(!strcmp($p,"Sale Price") == 0){
 								$item = new Item();
 								$item->name = $n;
