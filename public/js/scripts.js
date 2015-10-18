@@ -54,7 +54,7 @@ function makeTable() {
 		$(".deleterow").on("click", function(){
 		var $killrow = $(this).parent('tr');
     	$killrow.addClass("danger");
-			$killrow.fadeOut(2000, function(){
+			$killrow.fadeOut(500, function(){
     			$(this).remove();
 			});
 	});
