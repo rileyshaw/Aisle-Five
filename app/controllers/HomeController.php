@@ -50,6 +50,7 @@ class HomeController extends BaseController {
 			$n = $node->filter('.prod-title')->text();
 			$p = trim($node->filter('.prod-price-sale')->text());
 			$p = substr($p,1,strlen($p)-4);
+			
 			if(strcmp($p,'') == 0){
 				$sale = trim($node->filter('.prod-price-sale .prod-price-sort')->text());	
 				if($sale[0] == 'B'){
@@ -109,7 +110,7 @@ class HomeController extends BaseController {
 			$price = explode(" ",$p->text());
 			if(strpos($price[3], '$') !== FALSE){
 				$item = new Item();
-				$item->name = $n->text();
+				$item->name = trim($n->text());
 				$item->price = substr($price[3],1);
 				$item->images = $image->html();
 				$item->storeName = "Walmart";
