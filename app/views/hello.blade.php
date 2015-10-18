@@ -31,7 +31,10 @@
 				success: function (response) {
 					document.getElementById('Loading').innerHTML = '';
 					temp = response.substring(1);
+					items = [];
+					console.log(items.length);
 					items = JSON.parse(temp);
+					console.log(items.length);
 					makeTable();
 				}
 			});
