@@ -8,7 +8,7 @@
   		{{ HTML::style('css/style.css'); }}
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- {{ HTML::script('js/scripts.js'); }}
+ <script src="/boilermake/public/js/scripts.js"></script>
  <script>
  $(document).ready(function(){
 	$('#add').submit(function(e){
@@ -18,7 +18,6 @@
 		$.ajax({
 			xhrFields: {
 				onprogress: function (e) {
-					console.log("hasdfere");
 						if (e.lengthComputable) {
 							console.log("he324re");
 							console.log(e.loaded / e.total * 100 + '%');
@@ -30,11 +29,10 @@
 				data: dataFrom,
 				success: function (response) {
 					document.getElementById('Loading').innerHTML = '';
+					clearList();
 					temp = response.substring(1);
 					items = [];
-					console.log(items.length);
 					items = JSON.parse(temp);
-					console.log(items.length);
 					makeTable();
 				}
 			});
