@@ -6,10 +6,10 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		{{ HTML::style('css/style.css'); }}
-  		<link rel="stylesheet" href="/boilermake/public/css/style.css">
+  		<link rel="stylesheet" href="/public/css/style.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 		<script src="/boilermake/public/js/scripts.js"></script>
+ 		<script src="/public/js/scripts.js"></script>
  	<script>
  		$(document).ready(function(){
 			$('#add').submit(function(e){
@@ -47,7 +47,7 @@
   			<div class="form-group">
   				{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
   				{{ Form::text('product', '',  array('placeholder'=>'Product Name')) }}
-				{{Form::submit('Add', array('class' => 'btn btn-success'))}}
+				{{Form::submit('Search', array('class' => 'btn btn-success'))}}
 				<label id="Loading"></label>
 				{{Form::close()}}
 			</div>   
