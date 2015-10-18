@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D495FA861BD2892400D0F8E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FA851BD2892400D0F8E2 /* main.m */; };
+		D495FA891BD2892400D0F8E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FA881BD2892400D0F8E2 /* AppDelegate.m */; };
+		D495FA921BD2892400D0F8E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D495FA901BD2892400D0F8E2 /* Main.storyboard */; };
+		D495FA941BD2892400D0F8E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D495FA931BD2892400D0F8E2 /* Assets.xcassets */; };
+		D495FA971BD2892400D0F8E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D495FA951BD2892400D0F8E2 /* LaunchScreen.storyboard */; };
+		D495FAA21BD2892400D0F8E2 /* GroceriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAA11BD2892400D0F8E2 /* GroceriesTests.m */; };
+		D495FAAD1BD2892400D0F8E2 /* GroceriesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAAC1BD2892400D0F8E2 /* GroceriesUITests.m */; };
+		D495FABC1BD28AAC00D0F8E2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FABB1BD28AAC00D0F8E2 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D495FABF1BD28ECA00D0F8E2 /* ItemSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FABE1BD28ECA00D0F8E2 /* ItemSearch.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAC81BD29F5200D0F8E2 /* GroceryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAC71BD29F5200D0F8E2 /* GroceryCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		D495FACD1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FACC1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAD21BD2C63100D0F8E2 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAD11BD2C63100D0F8E2 /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAD41BD2C6FE00D0F8E2 /* food-grocery.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D495FAD31BD2C6FE00D0F8E2 /* food-grocery.jpg */; settings = {ASSET_TAGS = (); }; };
+		D495FAE91BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAD81BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAEA1BD2C76A00D0F8E2 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FADA1BD2C76A00D0F8E2 /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAEB1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FADD1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAEC1BD2C76A00D0F8E2 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FADF1BD2C76A00D0F8E2 /* AFSecurityPolicy.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAED1BD2C76A00D0F8E2 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAE11BD2C76A00D0F8E2 /* AFURLConnectionOperation.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAEE1BD2C76A00D0F8E2 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAE31BD2C76A00D0F8E2 /* AFURLRequestSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAEF1BD2C76A00D0F8E2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAE51BD2C76A00D0F8E2 /* AFURLResponseSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAF01BD2C76A00D0F8E2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAE71BD2C76A00D0F8E2 /* AFURLSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAF31BD2EDFF00D0F8E2 /* Enlarge.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAF21BD2EDFF00D0F8E2 /* Enlarge.m */; settings = {ASSET_TAGS = (); }; };
+		D495FAF61BD3249100D0F8E2 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D495FAF51BD3249100D0F8E2 /* LocationController.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D495FA9E1BD2892400D0F8E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D495FA791BD2892400D0F8E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D495FA801BD2892400D0F8E2;
+			remoteInfo = Groceries;
+		};
+		D495FAA91BD2892400D0F8E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D495FA791BD2892400D0F8E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D495FA801BD2892400D0F8E2;
+			remoteInfo = Groceries;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D495FA811BD2892400D0F8E2 /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D495FA851BD2892400D0F8E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D495FA871BD2892400D0F8E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D495FA881BD2892400D0F8E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D495FA911BD2892400D0F8E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D495FA931BD2892400D0F8E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D495FA961BD2892400D0F8E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D495FA981BD2892400D0F8E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D495FA9D1BD2892400D0F8E2 /* GroceriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D495FAA11BD2892400D0F8E2 /* GroceriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroceriesTests.m; sourceTree = "<group>"; };
+		D495FAA31BD2892400D0F8E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D495FAA81BD2892400D0F8E2 /* GroceriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D495FAAC1BD2892400D0F8E2 /* GroceriesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroceriesUITests.m; sourceTree = "<group>"; };
+		D495FAAE1BD2892400D0F8E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D495FABA1BD28AAC00D0F8E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
+		D495FABB1BD28AAC00D0F8E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		D495FABD1BD28ECA00D0F8E2 /* ItemSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSearch.h; sourceTree = "<group>"; };
+		D495FABE1BD28ECA00D0F8E2 /* ItemSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemSearch.m; sourceTree = "<group>"; };
+		D495FAC61BD29F5200D0F8E2 /* GroceryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroceryCollectionViewCell.h; sourceTree = "<group>"; };
+		D495FAC71BD29F5200D0F8E2 /* GroceryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroceryCollectionViewCell.m; sourceTree = "<group>"; };
+		D495FACB1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "AFNetworking-master/UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		D495FACC1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "AFNetworking-master/UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D495FAD01BD2C63100D0F8E2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		D495FAD11BD2C63100D0F8E2 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		D495FAD31BD2C6FE00D0F8E2 /* food-grocery.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "food-grocery.jpg"; sourceTree = "<group>"; };
+		D495FAD71BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		D495FAD81BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		D495FAD91BD2C76A00D0F8E2 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		D495FADA1BD2C76A00D0F8E2 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		D495FADB1BD2C76A00D0F8E2 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		D495FADC1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		D495FADD1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		D495FADE1BD2C76A00D0F8E2 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		D495FADF1BD2C76A00D0F8E2 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		D495FAE01BD2C76A00D0F8E2 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		D495FAE11BD2C76A00D0F8E2 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		D495FAE21BD2C76A00D0F8E2 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		D495FAE31BD2C76A00D0F8E2 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		D495FAE41BD2C76A00D0F8E2 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		D495FAE51BD2C76A00D0F8E2 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		D495FAE61BD2C76A00D0F8E2 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		D495FAE71BD2C76A00D0F8E2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		D495FAF11BD2EDFF00D0F8E2 /* Enlarge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enlarge.h; sourceTree = "<group>"; };
+		D495FAF21BD2EDFF00D0F8E2 /* Enlarge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enlarge.m; sourceTree = "<group>"; };
+		D495FAF41BD3249100D0F8E2 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		D495FAF51BD3249100D0F8E2 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D495FA7E1BD2892400D0F8E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FA9A1BD2892400D0F8E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FAA51BD2892400D0F8E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D495FA781BD2892400D0F8E2 = {
+			isa = PBXGroup;
+			children = (
+				D495FA831BD2892400D0F8E2 /* Groceries */,
+				D495FAA01BD2892400D0F8E2 /* GroceriesTests */,
+				D495FAAB1BD2892400D0F8E2 /* GroceriesUITests */,
+				D495FA821BD2892400D0F8E2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D495FA821BD2892400D0F8E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D495FA811BD2892400D0F8E2 /* Groceries.app */,
+				D495FA9D1BD2892400D0F8E2 /* GroceriesTests.xctest */,
+				D495FAA81BD2892400D0F8E2 /* GroceriesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D495FA831BD2892400D0F8E2 /* Groceries */ = {
+			isa = PBXGroup;
+			children = (
+				D495FA871BD2892400D0F8E2 /* AppDelegate.h */,
+				D495FA881BD2892400D0F8E2 /* AppDelegate.m */,
+				D495FA901BD2892400D0F8E2 /* Main.storyboard */,
+				D495FABA1BD28AAC00D0F8E2 /* MainViewController.h */,
+				D495FABB1BD28AAC00D0F8E2 /* MainViewController.m */,
+				D495FAC61BD29F5200D0F8E2 /* GroceryCollectionViewCell.h */,
+				D495FAC71BD29F5200D0F8E2 /* GroceryCollectionViewCell.m */,
+				D495FABD1BD28ECA00D0F8E2 /* ItemSearch.h */,
+				D495FABE1BD28ECA00D0F8E2 /* ItemSearch.m */,
+				D495FAF41BD3249100D0F8E2 /* LocationController.h */,
+				D495FAF51BD3249100D0F8E2 /* LocationController.m */,
+				D495FAF11BD2EDFF00D0F8E2 /* Enlarge.h */,
+				D495FAF21BD2EDFF00D0F8E2 /* Enlarge.m */,
+				D495FACB1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.h */,
+				D495FACC1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.m */,
+				D495FAD01BD2C63100D0F8E2 /* AFHTTPRequestOperation.h */,
+				D495FAD11BD2C63100D0F8E2 /* AFHTTPRequestOperation.m */,
+				D495FAD31BD2C6FE00D0F8E2 /* food-grocery.jpg */,
+				D495FAD71BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.h */,
+				D495FAD81BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.m */,
+				D495FAD91BD2C76A00D0F8E2 /* AFHTTPSessionManager.h */,
+				D495FADA1BD2C76A00D0F8E2 /* AFHTTPSessionManager.m */,
+				D495FADB1BD2C76A00D0F8E2 /* AFNetworking.h */,
+				D495FADC1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.h */,
+				D495FADD1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.m */,
+				D495FADE1BD2C76A00D0F8E2 /* AFSecurityPolicy.h */,
+				D495FADF1BD2C76A00D0F8E2 /* AFSecurityPolicy.m */,
+				D495FAE01BD2C76A00D0F8E2 /* AFURLConnectionOperation.h */,
+				D495FAE11BD2C76A00D0F8E2 /* AFURLConnectionOperation.m */,
+				D495FAE21BD2C76A00D0F8E2 /* AFURLRequestSerialization.h */,
+				D495FAE31BD2C76A00D0F8E2 /* AFURLRequestSerialization.m */,
+				D495FAE41BD2C76A00D0F8E2 /* AFURLResponseSerialization.h */,
+				D495FAE51BD2C76A00D0F8E2 /* AFURLResponseSerialization.m */,
+				D495FAE61BD2C76A00D0F8E2 /* AFURLSessionManager.h */,
+				D495FAE71BD2C76A00D0F8E2 /* AFURLSessionManager.m */,
+				D495FA931BD2892400D0F8E2 /* Assets.xcassets */,
+				D495FA951BD2892400D0F8E2 /* LaunchScreen.storyboard */,
+				D495FA981BD2892400D0F8E2 /* Info.plist */,
+				D495FA841BD2892400D0F8E2 /* Supporting Files */,
+			);
+			path = Groceries;
+			sourceTree = "<group>";
+		};
+		D495FA841BD2892400D0F8E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D495FA851BD2892400D0F8E2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D495FAA01BD2892400D0F8E2 /* GroceriesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D495FAA11BD2892400D0F8E2 /* GroceriesTests.m */,
+				D495FAA31BD2892400D0F8E2 /* Info.plist */,
+			);
+			path = GroceriesTests;
+			sourceTree = "<group>";
+		};
+		D495FAAB1BD2892400D0F8E2 /* GroceriesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D495FAAC1BD2892400D0F8E2 /* GroceriesUITests.m */,
+				D495FAAE1BD2892400D0F8E2 /* Info.plist */,
+			);
+			path = GroceriesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D495FA801BD2892400D0F8E2 /* Groceries */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D495FAB11BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "Groceries" */;
+			buildPhases = (
+				D495FA7D1BD2892400D0F8E2 /* Sources */,
+				D495FA7E1BD2892400D0F8E2 /* Frameworks */,
+				D495FA7F1BD2892400D0F8E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Groceries;
+			productName = Groceries;
+			productReference = D495FA811BD2892400D0F8E2 /* Groceries.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D495FA9C1BD2892400D0F8E2 /* GroceriesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D495FAB41BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesTests" */;
+			buildPhases = (
+				D495FA991BD2892400D0F8E2 /* Sources */,
+				D495FA9A1BD2892400D0F8E2 /* Frameworks */,
+				D495FA9B1BD2892400D0F8E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D495FA9F1BD2892400D0F8E2 /* PBXTargetDependency */,
+			);
+			name = GroceriesTests;
+			productName = GroceriesTests;
+			productReference = D495FA9D1BD2892400D0F8E2 /* GroceriesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D495FAA71BD2892400D0F8E2 /* GroceriesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D495FAB71BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesUITests" */;
+			buildPhases = (
+				D495FAA41BD2892400D0F8E2 /* Sources */,
+				D495FAA51BD2892400D0F8E2 /* Frameworks */,
+				D495FAA61BD2892400D0F8E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D495FAAA1BD2892400D0F8E2 /* PBXTargetDependency */,
+			);
+			name = GroceriesUITests;
+			productName = GroceriesUITests;
+			productReference = D495FAA81BD2892400D0F8E2 /* GroceriesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D495FA791BD2892400D0F8E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Martin Isaza";
+				TargetAttributes = {
+					D495FA801BD2892400D0F8E2 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = RCZ6K3V9GR;
+					};
+					D495FA9C1BD2892400D0F8E2 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D495FA801BD2892400D0F8E2;
+					};
+					D495FAA71BD2892400D0F8E2 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = D495FA801BD2892400D0F8E2;
+					};
+				};
+			};
+			buildConfigurationList = D495FA7C1BD2892400D0F8E2 /* Build configuration list for PBXProject "Groceries" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D495FA781BD2892400D0F8E2;
+			productRefGroup = D495FA821BD2892400D0F8E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D495FA801BD2892400D0F8E2 /* Groceries */,
+				D495FA9C1BD2892400D0F8E2 /* GroceriesTests */,
+				D495FAA71BD2892400D0F8E2 /* GroceriesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D495FA7F1BD2892400D0F8E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D495FAD41BD2C6FE00D0F8E2 /* food-grocery.jpg in Resources */,
+				D495FA971BD2892400D0F8E2 /* LaunchScreen.storyboard in Resources */,
+				D495FA941BD2892400D0F8E2 /* Assets.xcassets in Resources */,
+				D495FA921BD2892400D0F8E2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FA9B1BD2892400D0F8E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FAA61BD2892400D0F8E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D495FA7D1BD2892400D0F8E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D495FAED1BD2C76A00D0F8E2 /* AFURLConnectionOperation.m in Sources */,
+				D495FAC81BD29F5200D0F8E2 /* GroceryCollectionViewCell.m in Sources */,
+				D495FAF31BD2EDFF00D0F8E2 /* Enlarge.m in Sources */,
+				D495FACD1BD2C48A00D0F8E2 /* UIImageView+AFNetworking.m in Sources */,
+				D495FABF1BD28ECA00D0F8E2 /* ItemSearch.m in Sources */,
+				D495FAEF1BD2C76A00D0F8E2 /* AFURLResponseSerialization.m in Sources */,
+				D495FA891BD2892400D0F8E2 /* AppDelegate.m in Sources */,
+				D495FAEE1BD2C76A00D0F8E2 /* AFURLRequestSerialization.m in Sources */,
+				D495FAEC1BD2C76A00D0F8E2 /* AFSecurityPolicy.m in Sources */,
+				D495FAF01BD2C76A00D0F8E2 /* AFURLSessionManager.m in Sources */,
+				D495FABC1BD28AAC00D0F8E2 /* MainViewController.m in Sources */,
+				D495FA861BD2892400D0F8E2 /* main.m in Sources */,
+				D495FAF61BD3249100D0F8E2 /* LocationController.m in Sources */,
+				D495FAEA1BD2C76A00D0F8E2 /* AFHTTPSessionManager.m in Sources */,
+				D495FAD21BD2C63100D0F8E2 /* AFHTTPRequestOperation.m in Sources */,
+				D495FAEB1BD2C76A00D0F8E2 /* AFNetworkReachabilityManager.m in Sources */,
+				D495FAE91BD2C76A00D0F8E2 /* AFHTTPRequestOperationManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FA991BD2892400D0F8E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D495FAA21BD2892400D0F8E2 /* GroceriesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D495FAA41BD2892400D0F8E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D495FAAD1BD2892400D0F8E2 /* GroceriesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D495FA9F1BD2892400D0F8E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D495FA801BD2892400D0F8E2 /* Groceries */;
+			targetProxy = D495FA9E1BD2892400D0F8E2 /* PBXContainerItemProxy */;
+		};
+		D495FAAA1BD2892400D0F8E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D495FA801BD2892400D0F8E2 /* Groceries */;
+			targetProxy = D495FAA91BD2892400D0F8E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D495FA901BD2892400D0F8E2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D495FA911BD2892400D0F8E2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D495FA951BD2892400D0F8E2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D495FA961BD2892400D0F8E2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D495FAAF1BD2892400D0F8E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D495FAB01BD2892400D0F8E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D495FAB21BD2892400D0F8E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Groceries/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.Groceries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		D495FAB31BD2892400D0F8E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Groceries/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.Groceries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		D495FAB51BD2892400D0F8E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GroceriesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.GroceriesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Groceries.app/Groceries";
+			};
+			name = Debug;
+		};
+		D495FAB61BD2892400D0F8E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GroceriesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.GroceriesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Groceries.app/Groceries";
+			};
+			name = Release;
+		};
+		D495FAB81BD2892400D0F8E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GroceriesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.GroceriesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Groceries;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D495FAB91BD2892400D0F8E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GroceriesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.GroceriesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Groceries;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D495FA7C1BD2892400D0F8E2 /* Build configuration list for PBXProject "Groceries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D495FAAF1BD2892400D0F8E2 /* Debug */,
+				D495FAB01BD2892400D0F8E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D495FAB11BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "Groceries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D495FAB21BD2892400D0F8E2 /* Debug */,
+				D495FAB31BD2892400D0F8E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D495FAB41BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D495FAB51BD2892400D0F8E2 /* Debug */,
+				D495FAB61BD2892400D0F8E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D495FAB71BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D495FAB81BD2892400D0F8E2 /* Debug */,
+				D495FAB91BD2892400D0F8E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D495FA791BD2892400D0F8E2 /* Project object */;
+}
