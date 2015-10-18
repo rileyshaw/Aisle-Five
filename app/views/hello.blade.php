@@ -42,7 +42,7 @@
 
 </head>
 <body>
-<div class="container">_
+<div class="container">
   <div class="jumbotron">
     <h1>Groceries</h1>      
   </div> 
