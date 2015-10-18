@@ -36,19 +36,39 @@ table{
 						dataFrom = $form.serialize(),
 						url = $form.attr( "action"),
 						method = $form.attr( "method" );
+				//		$.ajax({
+			//				url: "{{action('HomeController@addItem')}}",
+		//					data: dataFrom,
+	//						type: method,
+//							success: function (response) {
+	//							document.getElementById('Loading').innerHTML = '';
+	//							temp = response.substring(1);
+	//							console.log("items");
+	//							items = JSON.parse(temp);
+	//							console.log(items[0]['price']);
+	//							makeTable();
+	//						}
+	//					});$.ajax({
 						$.ajax({
-							url: "{{action('HomeController@addItem')}}",
-							data: dataFrom,
-							type: method,
-							success: function (response) {
+								  xhrFields: {
+									onprogress: function (e) {
+										console.log("hasdfere");
+									if (e.lengthComputable) {
+										console.log("he324re");
+										console.log(e.loaded / e.total * 100 + '%');
+										}
+									}
+								},
+								 type: method,
+								  url: "{{action('HomeController@addItem')}}",
+								  data: dataFrom,
+								  success: function (response) {
 								document.getElementById('Loading').innerHTML = '';
 								temp = response.substring(1);
-								console.log("items");
 								items = JSON.parse(temp);
-								console.log(items[0]['price']);
 								makeTable();
 							}
-						});
+								});
 					});
 				});
 	</script>
@@ -65,6 +85,7 @@ table{
 		{{Form::submit('Add', array('class' => 'btn btn-success'))}}
 		<label id="Loading"></label>
 	{{Form::close()}}
+	<button onclick='clearList()'>Clear</button>
 	</div>   
 	<div class="table-responsive">
 <table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
@@ -102,6 +123,11 @@ table{
 		document.write("items");
 		var table = document.getElementById("productTable");
 			table.deleteRow(0);			
+		}
+	function clearList() {
+			var table = document.getElementById("productTable");
+		for(var i = 0; i < items.length; i++) 
+			table.deleteRow(1);			
 		}
 		
 	</script>
