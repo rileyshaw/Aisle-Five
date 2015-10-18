@@ -30,6 +30,7 @@ table{
   <script>
 				$(document).ready(function(){
 					$('#add').submit(function(e){
+						document.getElementById('Loading').innerHTML = 'Loading...';
 						e.preventDefault();
 						var $form = $( this ),
 						dataFrom = $form.serialize(),
@@ -40,6 +41,7 @@ table{
 							data: dataFrom,
 							type: method,
 							success: function (response) {
+								document.getElementById('Loading').innerHTML = '';
 								temp = response.substring(1);
 								console.log("items");
 								items = JSON.parse(temp);
@@ -60,8 +62,8 @@ table{
   <div class="form-group">
   	{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
   		{{Form::text('product')}}
-    		<button id = "AddItem" type="button" class="btn btn-success">Add</button>
-		{{Form::submit('Add2', array('class' => 'btn btn-success'))}}
+		{{Form::submit('Add', array('class' => 'btn btn-success'))}}
+		<label id="Loading"></label>
 	{{Form::close()}}
 	</div>   
 	<div class="table-responsive">
