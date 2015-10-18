@@ -13,3 +13,4 @@
 
 Route::get('/', 'HomeController@showHome');
 Route::post('submit', 'HomeController@addItem');
+Route::post('submitios', 'HomeController@addItemiOS');
