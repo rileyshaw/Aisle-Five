@@ -6,10 +6,10 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		{{ HTML::style('css/style.css'); }}
-  		<link rel="stylesheet" href="/css/style.css">
+  		<link rel="stylesheet" href="/boilermake/public/css/style.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 		<script src="/js/scripts.js"></script>
+ 		<script src="/boilermake/public/js/scripts.js"></script>
  	<script>
  		$(document).ready(function(){
 			$('#add').submit(function(e){
@@ -54,12 +54,15 @@
 			<div class="table-responsive">
 				<table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
 					<tr>
-						<td onclick="clearList()" class="column-one">Clear List</td>
-						<td onclick="sort(2)" class="column-two">Product</td>
-						<td onclick="sort(1)" class="column-three">Price</td>
-						<td onclick="sort(3)" class="column-four">Store</td>
+						<td onclick="clearList()">Clear List</td>
+						<td onclick="sort(2)">Product</td>
+						<td onclick="sort(1)">Price</td>
+						<td onclick="sort(3)">Store</td>
 					</tr>
 				</table>
 			</div>
 	</body>
+	<footer>
+  		<p>Designed and Created by this asshole</p>
+	</footer>
 </html>
