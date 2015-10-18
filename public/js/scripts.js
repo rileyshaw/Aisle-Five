@@ -1,3 +1,6 @@
+/**
+* 
+*/
 function sort(how) {
 	var table = document.getElementById("productTable");
 	for(var i = 0; i < items.length; i++) 
