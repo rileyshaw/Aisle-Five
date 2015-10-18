@@ -34,13 +34,11 @@ class HomeController extends BaseController {
 	}
 	public function addItem()
 	{
-		echo "try " + Input::get('product');
 		unset($items);
 		$items = array();
 		$items = $this->getItemsFromTarget(Input::get('product'));
 		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
 		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
-		//console.log(count($items));
 		return json_encode($items);
 	}	
 	public function getItemsFromMeijer($itemName){
