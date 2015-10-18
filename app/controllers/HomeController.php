@@ -32,6 +32,15 @@ class HomeController extends BaseController {
 	public function showHome(){
 		return View::make('hello');
 	}
+	public function addItemiOS(){
+		echo "try " + Input::get('product');
+		unset($items);
+		$items = array();
+		$items = $this->getItemsFromTarget(Input::get('product'));
+		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
+		return stripslashes(json_encode($items,JSON_PRETTY_PRINT));
+	}
 	public function addItem()
 	{
 		echo "try " + Input::get('product');
