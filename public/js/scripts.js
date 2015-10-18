@@ -49,15 +49,9 @@ function makeTable() {
 	var table = document.getElementById("productTable");
  	var j = 0;
 
-   for(var i = 0; i < items.length; i++)
-		$('table tr:last').after("<tr><td class='deleterow'><div class='glyphicon glyphicon-remove'></div></td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
-		$(".deleterow").on("click", function(){
-		var $killrow = $(this).parent('tr');
-    	$killrow.addClass("danger");
-			$killrow.fadeOut(500, function(){
-    			$(this).remove();
-			});
-	});
+   for(var i = 0; i < items.length; i++) {
+		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
+	}
 }
 
 function addToTable() {
