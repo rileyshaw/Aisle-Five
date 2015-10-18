@@ -41,13 +41,20 @@ function sort(how) {
  			}
 		}	
 
-    	for(var i = 0; i < items.length; i++) 
-		    $('table tr:last').after("<tr><td class='deleterow'><div class='glyphicon glyphicon-remove'></div></td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
+    	for(var i = 0; i < items.length; i++) {
+		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
 	}
+}
 
 function makeTable() {
 	var table = document.getElementById("productTable");
  	var j = 0;
+ 	for(var i = 0; i < items.length; i++) {
+ 		if(typeof items[i]['images'] != null && typeof items[i]['images'] != undefined) {
+ 			//items[i]['images'].style.width = '50%';
+			//items[i]['images'].style.height = 'auto';
+		}
+ 	}
 
    for(var i = 0; i < items.length; i++) {
 		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");

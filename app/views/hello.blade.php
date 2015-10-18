@@ -46,7 +46,7 @@
   			</div> 
   			<div class="form-group">
   				{{Form::open(array('action' => 'HomeController@showHome', 'id' => 'add'))}}
-  				{{Form::text('product')}}
+  				{{ Form::text('product', '',  array('placeholder'=>'Product Name')) }}
 				{{Form::submit('Add', array('class' => 'btn btn-success'))}}
 				<label id="Loading"></label>
 				{{Form::close()}}
@@ -54,10 +54,10 @@
 			<div class="table-responsive">
 				<table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
 					<tr>
-						<td onclick="clearList()">Clear List</td>
-						<td onclick="sort(2)">Product</td>
-						<td onclick="sort(1)">Price</td>
-						<td onclick="sort(3)">Store</td>
+						<td onclick="clearList()" class="column-one">Clear List</td>
+						<td onclick="sort(2)" class="column-two">Product</td>
+						<td onclick="sort(1)" class="column-three">Price</td>
+						<td onclick="sort(3)" class="column-four">Store</td>
 					</tr>
 				</table>
 			</div>
