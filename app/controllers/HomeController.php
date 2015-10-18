@@ -101,19 +101,21 @@ class HomeController extends BaseController {
 		$results = $crawler->filter('.tileRowContainer')->each(function (Crawler $node, $i) use (&$items){
 			$row = $node->filter('li')->each(function (Crawler $noder, $i) use (&$items){
 				if($noder->filter('.tileInfo')->count()){
-					if( $noder->filter('.tileInfo')->count()){
-						$noder1 = $noder->filter('.tileInfo');
-						$n = trim($noder1->filter('.productClick')->text());
-						$p = trim($noder1->filter('.price')->text());
-						$noder2 = $noder->filter('.tileImage');
-						if(!strcmp($p,"Sale Price") == 0){
-							$item = new Item();
-							$item->name = $n;
-							$item->price = substr($p,1);
-							$item->images = $noder2->html();
-							$item->images = str_replace("original", "src", $item->images);
-							$item->storeName = "Target";
-							$items[] = $item;	
+					$noder1 = $noder->filter('.tileInfo');
+					if($noder1->filter('.productClick')->count()){
+						if($noder1->filter('.price')->count()){
+							$n = trim($noder1->filter('.productClick')->text());
+							$p = trim($noder1->filter('.price')->text());
+							$noder2 = $noder->filter('.tileImage');
+							if(!strcmp($p,"Sale Price") == 0){
+								$item = new Item();
+								$item->name = $n;
+								$item->price = substr($p,1);
+								$item->images = $noder2->html();
+								$item->images = str_replace("original", "src", $item->images);
+								$item->storeName = "Target";
+								$items[] = $item;	
+							}
 						}
 					}
 				}
