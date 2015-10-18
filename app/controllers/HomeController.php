@@ -111,6 +111,7 @@ class HomeController extends BaseController {
 							$item->name = $n;
 							$item->price = substr($p,1);
 							$item->images = $noder2->html();
+							$item->images = str_replace("original", "src", $item->images);
 							$item->storeName = "Target";
 							$items[] = $item;	
 						}
@@ -135,6 +136,7 @@ class HomeController extends BaseController {
 				$item->name = trim($n->text());
 				$item->price = substr($price[3],1);
 				$item->images = $image->html();
+				$item->images = str_replace("data-default-image", "src", $item->images);
 				$item->storeName = "Walmart";
 				$items[] = $item;	
 			}
