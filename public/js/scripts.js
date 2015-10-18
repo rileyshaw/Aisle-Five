@@ -46,6 +46,7 @@ function sort(how) {
 	}
 }
 
+
 function makeTable() {
 	var table = document.getElementById("productTable");
  	var j = 0;
@@ -57,7 +58,8 @@ function makeTable() {
  	}
 
    for(var i = 0; i < items.length; i++) {
-		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td>"+"<td>"+items[i]['name'] +"</td><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
+   		console.log(items[i]['images']);
+		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td><td>"+items[i]['name'] +"</><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
 	}
 }
 

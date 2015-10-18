@@ -17,3 +17,8 @@ table{
 	text-align: center;
 	height: 25px;
 }
+.imageCell {
+	display:block; 
+	width: 100%; 
+	height:100%;
+}
