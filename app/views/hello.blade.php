@@ -71,31 +71,12 @@
 			</div>   
 
 		</form>
-	
-			<!--<div class="table-responsive">
-				<table border="1" id="productTable" class = "table table-striped table-hover  table-bordered"> 
-					<tr>
-						<td onclick="clearList()">Clear List</td>
-						<td onclick="sort(2)">Product</td>
-						<td onclick="sort(1)">Price</td>
-						<td onclick="sort(3)">Store</td>
-					</tr>
-				</table>
-			</div>-->
-	<div class="labelDiv">
-		<label id="Product" onclick="sort(3)" class="titleLabelsP"></label>
-		<label id="Price" onclick="sort(1)" class="titleLabels"></label>
-		<label id="Store" onclick="sort(3)" class="titleLabels"></label>
-	</div>
-
-	<div style="display: table; width: 100%; height 2px;">
-	</div>
-
-	<!--$('body div:last').after("<div class=\"box\"><div><div class=\"image\"></div><div class=\"info\"><label class=\"productLabel\">"+items[i]['name']+"</label><label class=\"priceLabel\">"+"$"+items[i]['price'] +"</label><label class=\"storeLabel\">"+items[i]['storeName']+"</label></div></div></div>");
-
-	$('body div:last').after("<tr><td class=\"imageCell\">"+items[i]['images']+"</td><td>"+items[i]['name'] +"</><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
-
-
-	-->
-		</body>
+			<div class="labelDiv">
+				<label id="Product" onclick="sort(2)" class="titleLabelsP"></label>
+				<label id="Price" onclick="sort(1)" class="titleLabels"></label>
+				<label id="Store" onclick="sort(3)" class="titleLabels"></label>
+			</div>
+		<div style="display: table; width: 100%; height 2px;">
+		</div>
+	</body>
 </html>
