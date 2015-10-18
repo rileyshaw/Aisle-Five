@@ -59,7 +59,7 @@ function makeTable() {
 
    for(var i = 0; i < items.length; i++) {
    		console.log(items[i]['images']);
-		$('table tr:last').after("<tr><td>"+items[i]['images']+"</td><td>"+items[i]['name'] +"</><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
+		$('table tr:last').after("<tr><td class = \"imageCell\">"+items[i]['images']+"</td><td>"+items[i]['name'] +"</><td>"+"$"+items[i]['price'] +"</td><td>"+items[i]['storeName']+"</tr>");
 	}
 }
 
