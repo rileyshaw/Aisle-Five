@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface Enlarge : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *enlargeImageView;
-@property (weak, nonatomic) IBOutlet UILabel *priceEnlargeLabel;
-@property (weak, nonatomic) IBOutlet UITextView *longTextView;
+
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 - (void)setUpEnlargeViewWithDictionary:(NSDictionary *)dict ;
 

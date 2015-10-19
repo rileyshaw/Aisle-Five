@@ -511,6 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.Groceries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -525,6 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasisaza.Groceries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -595,6 +597,7 @@
 				D495FAB31BD2892400D0F8E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D495FAB41BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesTests" */ = {
 			isa = XCConfigurationList;
@@ -603,6 +606,7 @@
 				D495FAB61BD2892400D0F8E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D495FAB71BD2892400D0F8E2 /* Build configuration list for PBXNativeTarget "GroceriesUITests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +615,7 @@
 				D495FAB91BD2892400D0F8E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

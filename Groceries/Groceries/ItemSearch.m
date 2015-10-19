@@ -33,8 +33,7 @@
     
     NSArray *resultsArray = [[NSArray alloc] initWithObjects:item1, item2, item3, nil];
     
-    
-    /*NSMutableArray *pricesArray = [[NSMutableArray alloc] init];
+    NSMutableArray *pricesArray = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < resultsArray.count; i++) {
         float d = [resultsArray[i][@"Price"] floatValue];
@@ -57,122 +56,25 @@
             }
         }
     }
-    NSLog(@"SORTED: %@", finalArray); */
+    NSLog(@"SORTED: %@", finalArray);
     
     completion([resultsArray mutableCopy]);
 }
 
-- (void)postForGroceriesOnProduct:(NSString *)productName andCompletion:(void (^) (NSArray *returnedArray, NSError *Error))completionHandler {
-    
-   /* NSString *post = [NSString stringWithFormat: @"product=%@", productName];
-    
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
-    //NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://grocery.rileyshaw.net/index.php/submit"]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://grocery.rileyshaw.net/index.php/submit"]];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:productName forHTTPHeaderField:@"product"];
-    [request setHTTPBody:postData];
-    */
-    NSURL *url = [NSURL URLWithString:@"http://grocery.rileyshaw.net/index.php/submit"];
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"POST";
-
-    
-    NSLog(@"PRODUCT NAME: %@", productName);
-    NSDictionary *contentDictionary = @{@"product" : productName};
-    
-    NSError *error = nil;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:contentDictionary
-                                                   options:kNilOptions
-                                                     error:&error];
-    
-    if (!error) {
-        NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
-                                                                   fromData:data completionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
-                                                    //deal with response
-                                                                       NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                                                       NSLog(@"DATASTRING:%@", returnString);
-                                                                       returnString = [returnString substringFromIndex:1];
-                                                                       
-                                                                       //returnString = [returnString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-                                                                       
-                                                                       NSData *stringData = [returnString dataUsingEncoding:NSUTF8StringEncoding];
-                                                                       
-                                                                       //NSLog(@"RESPONSE%@", response);
-                                                                       NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:stringData options:NSJSONReadingMutableContainers error:&error];
-                                                                       
-                                                                    
-                                                                       //WORKING: pattern = @"(http://i.walmartimages.com.*?.jpg)"
-                                                                       NSLog(@"RESPONSEJSON:%@", jsonArray);
-                                                                       //parse out the urls
-                                                                       NSString *pattern = [[NSString alloc] init];
-                                                                       for (int k = 0; k < jsonArray.count; k++) {
-                                                                           if ([jsonArray[k][@"storeName"]  isEqual: @"Walmart"]) {
-                                                                               
-                                                                               pattern = @"(http://.*?.walmartimages.com.*?.jpg)";
-                                                                           }
-                                                                           
-                                                                           else if ([jsonArray[k][@"storeName"]  isEqual: @"Meijer"]) {
-                                                                               pattern = @"(http://.*?.meijer.com.*?.jpg)";
-                                                                           }
-                                                                           
-                                                                           else if ([jsonArray[k][@"storeName"] isEqualToString:@"Target"]) {
-                                                                               pattern = @"(http://.*?.targetimg1.com.*?.jpeg)";
-                                                                           }
-                                                                           
-                                                                           NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
-                                                                           
-                                                                           
-                                                                           NSString *images = jsonArray[k][@"images"];
-                                                                           NSArray* matches = [regex matchesInString:images options:0 range:NSMakeRange(0, [images length])];
-                                                                           
-                                                                           //NSLog(@"%@", [images substringWithRange:match.range]);
-                                                                           if (matches) {
-                                                                               NSTextCheckingResult *match = matches[0];
-                                                                               jsonArray[k][@"URL"] = [images substringWithRange:match.range];
-                                                                           }
-                                                                           else {
-                                                                               jsonArray[k][@"URL"] = nil;
-                                                                           }
-                                                                           
-                                                                       }
-
-                                                                       //NSLog(@"MATCHES: %@", matches);
-                                                                       
-                                                                       NSLog(@"RESPONSEJSON:%@", jsonArray);
-                                                                       completionHandler(jsonArray, error);
-                                                                   }];
-        
-        [uploadTask resume];
-    }
-    
-    else {
-        completionHandler(nil, error);
-    }
-
-}
-
 
 - (void)POST2ForGroceriesOnProduct:(NSString *)productName andCompletion:(void (^) (NSArray *returnedArray, NSError *Error))completionHandler {
-    NSString *stringURL = [NSString stringWithFormat:@"http://grocery.rileyshaw.net/index.php/submit"];
+    NSString *stringURL = [NSString stringWithFormat:@"http://aislefive.rileyshaw.net/index.php/submit"];
     
         NSURL *url = [NSURL URLWithString:stringURL];
     
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         request.HTTPMethod = @"POST";
-
-        //content type header
-        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        NSString *post = [NSString stringWithFormat:@"product=%@", productName];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
+        //content type header
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
         NSURLSession *session = [NSURLSession sharedSession];
     
         NSMutableDictionary *requestBodyDict = [[NSMutableDictionary alloc] init];
@@ -184,7 +86,7 @@
         
                 NSData *DataJSONbody = [StringJSONbody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
-                [request setHTTPBody:DataJSONbody];
+                //[request setHTTPBody:DataJSONbody];
         
                 //make task
                 NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -226,7 +128,7 @@
                         NSArray* matches = [regex matchesInString:images options:0 range:NSMakeRange(0, [images length])];
                         
                         //NSLog(@"%@", [images substringWithRange:match.range]);
-                        if (matches) {
+                        if (matches.count > 0) {
                             NSTextCheckingResult *match = matches[0];
                             jsonArray[k][@"URL"] = [images substringWithRange:match.range];
                         }

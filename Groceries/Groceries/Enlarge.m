@@ -19,11 +19,17 @@ NSDictionary *paramDict;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.priceEnlargeLabel.text = [NSString stringWithFormat:@"$%@ at %@", paramDict[@"price"], paramDict[@"storeName"]];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%@ at %@", paramDict[@"price"], paramDict[@"storeName"]];
     
-    self.enlargeImageView.image = paramDict[@"Image"];
-    self.enlargeImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.longTextView.text = paramDict[@"name"];
+    self.productImage.image = paramDict[@"Image"];
+    self.productImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //self.textLabel.adjustsFontSizeToFitWidth = YES;
+    [self.textLabel setText: paramDict[@"name"]];
+    
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.textLabel.numberOfLines = 0;
+    //self.longTextView.textColor = [UIColor whiteColor];
 }
 
 - (void)setUpEnlargeViewWithDictionary:(NSDictionary *)dict {
