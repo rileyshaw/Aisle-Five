@@ -11,6 +11,7 @@
 @interface ItemSearch : NSObject
 
 - (void)getItemsFromSearch:(NSString *)searchText withCallback: (void (^) (NSMutableArray *results)) completion;
-- (void)postForGroceriesOnProduct:(NSString *)productName andCompletion:(void (^) (NSArray *returnedArray, NSError *Error))completionHandler;
+- (void)POST2ForGroceriesOnProduct:(NSString *)productName andCompletion:(void (^) (NSArray *returnedArray, NSError *Error))completionHandler;
+
 
 @end

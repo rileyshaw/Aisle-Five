@@ -59,8 +59,8 @@ static NSString * const reuseIdentifier = @"GroceryItem";
     
     //activity indeicator
     [self.groceriesActivityIndicator startAnimating];
-    
-    [itemSearchController postForGroceriesOnProduct:self.itemSearchBar.text andCompletion:^(NSArray *returnedArray, NSError *Error) {
+
+    [itemSearchController POST2ForGroceriesOnProduct:self.itemSearchBar.text andCompletion:^(NSArray *returnedArray, NSError *Error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (Error) {
@@ -93,8 +93,9 @@ static NSString * const reuseIdentifier = @"GroceryItem";
     
     NSString *imageUrl = [NSString stringWithFormat:@"%@", dataArray[indexPath.row][@"URL"]];
     
-    if (dataArray[indexPath.row][@"URL"]) {
+        if (dataArray[indexPath.row][@"URL"]) {
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]]];
+        dataArray[indexPath.row][@"SavedImage"] = image;
         itemCell.productPhoto.image = image;
         itemCell.productPhoto.contentMode = UIViewContentModeScaleAspectFit;
     }

@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     //[self.window setRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"MainVC"]];
     return YES;
 }
