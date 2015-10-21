@@ -2,36 +2,19 @@
 use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
-class Item{
-		public $name;
-		public $price;
-		public $images;
-		public $storeName;
+class Item {
+	public $name;
+	public $price;
+	public $images;
+	public $storeName;
 }
-class HomeController extends BaseController {
-	
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
 
-	public static function getAllItems($itemName){
-		//$this->getItemsFromWalmart($itemName);
-		echo "Inside";
-		//$this->getItemsFromMeijer($itemName);
-		
-	}
+class HomeController extends BaseController {
+
 	public function showHome(){
 		return View::make('hello');
 	}
+
 	public function addItemiOS(){
 		echo "try " + Input::get('product');
 		unset($items);
@@ -41,14 +24,15 @@ class HomeController extends BaseController {
 		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return stripslashes(json_encode($items,JSON_PRETTY_PRINT));
 	}
-	public function addItem()
-	{
+
+	public function addItem() {
 		$items = array();
 		$items = $this->getItemsFromTarget(Input::get('product'));
 		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
 		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return json_encode($items);
 	}
+
 	public function getItemsFromMeijer($itemName) {
 		$items = array();
 		$client = new Client();
@@ -92,7 +76,7 @@ class HomeController extends BaseController {
 		return $items;
 	}
 
-	public function getItemsFromTarget($itemName){
+	public function getItemsFromTarget($itemName) {
 		$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.target.com/s?searchTerm=' . $itemName .' &category=0%7CAll%7Cmatchallpartial%7Call+categories&lnk=snav_sbox_milk' . $itemName .'&grid=true&');
@@ -121,7 +105,7 @@ class HomeController extends BaseController {
 		return $items;
 	}
 
-	public function getItemsFromWalmart($itemName){
+	public function getItemsFromWalmart($itemName) {
 		$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.walmart.com/search/?query=' . $itemName .'&grid=true&');
@@ -141,5 +125,4 @@ class HomeController extends BaseController {
 		});
 		return $items;
 	}
-
 }
