@@ -44,7 +44,7 @@ class HomeController extends BaseController {
 	public function addItem()
 	{
 		$items = array();
-		$items = $this->getItemsFromMeijer(Input::get('product'));
+		$items = $this->getItemsFromTarget(Input::get('product'));
 		// $items = $this->getItemsFromTarget(Input::get('product'));
 		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
 		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
@@ -110,8 +110,7 @@ class HomeController extends BaseController {
 								$item = new Item();
 								$item->name = $n;
 								$item->price = substr($p,1);
-								$item->images = $noder2->html();
-								$item->images = str_replace("original", "src", $item->images);
+								$item->images = $noder2->filter('img')->attr('src');
 								$item->storeName = "Target";
 								$items[] = $item;	
 							}
