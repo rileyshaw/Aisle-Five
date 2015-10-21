@@ -6,12 +6,12 @@
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		{{ HTML::style('css/style.css'); }}
-  		<link rel="stylesheet" href="/css/style.css">
+
   		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
   		<link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- 		<script src="/js/scripts.js"></script>
+ 		{{ HTML::script('js/scripts.js'); }}
  	<script>
 
  		var items;

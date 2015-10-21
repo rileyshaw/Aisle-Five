@@ -43,21 +43,19 @@ class HomeController extends BaseController {
 	}
 	public function addItem()
 	{
-		echo "try " + Input::get('product');
-		unset($items);
 		$items = array();
-		$items = $this->getItemsFromTarget(Input::get('product'));
-		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
-		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
+		$items = $this->getItemsFromMeijer(Input::get('product'));
+		// $items = $this->getItemsFromTarget(Input::get('product'));
+		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return json_encode($items);
-	}	
-	public function getItemsFromMeijer($itemName){
+	}
+	public function getItemsFromMeijer($itemName) {
 		$items = array();
 		$client = new Client();
 		$crawler = $client->request('GET', 'http://www.meijer.com/catalog/search_command.cmd?keyword=' . $itemName);
 		$results = $crawler->filter('.prod-item')->each(function (Crawler $node, $i) use (&$items){
 			$image = $node->filter('.prod-img')->attr('src');
-			$image = '<img class="prod-img" src="//' . $image . '">';
 			$n = $node->filter('.prod-title')->text();
 			$p = trim($node->filter('.prod-price-sale')->text());
 			$p = substr($p,0,strlen($p)-3);
@@ -72,8 +70,8 @@ class HomeController extends BaseController {
 				}else{
 					$p = substr($sale, 1,strlen($sale)-4);
 				}
-			}else{
 			}
+
 			if($p[0] != 'B'){
 				if(strlen($p) == 3){
 					$p = $p . "0";
@@ -83,6 +81,7 @@ class HomeController extends BaseController {
 				if($p[0] == '$'){
 					$p = substr($p, 1);
 				}
+				$p = substr($p, 0, 4);
 				$item = new Item();
 				$item->name = $n;
 				$item->price = $p;
@@ -92,8 +91,8 @@ class HomeController extends BaseController {
 			}
 		});
 		return $items;
-
 	}
+
 	public function getItemsFromTarget($itemName){
 		$items = array();
 		$client = new Client();
