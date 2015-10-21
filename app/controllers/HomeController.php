@@ -44,7 +44,7 @@ class HomeController extends BaseController {
 	public function addItem()
 	{
 		$items = array();
-		$items = $this->getItemsFromTarget(Input::get('product'));
+		$items = $this->getItemsFromWalmart(Input::get('product'));
 		// $items = $this->getItemsFromTarget(Input::get('product'));
 		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
 		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
@@ -135,8 +135,7 @@ class HomeController extends BaseController {
 				$item = new Item();
 				$item->name = trim($n->text());
 				$item->price = substr($price[3],1);
-				$item->images = $image->html();
-				$item->images = str_replace("data-default-image", "src", $item->images);
+				$item->images = $image->filter('img')->attr('src');
 				$item->storeName = "Walmart";
 				$items[] = $item;	
 			}
