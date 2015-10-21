@@ -44,10 +44,9 @@ class HomeController extends BaseController {
 	public function addItem()
 	{
 		$items = array();
-		$items = $this->getItemsFromWalmart(Input::get('product'));
-		// $items = $this->getItemsFromTarget(Input::get('product'));
-		// $items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
-		// $items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
+		$items = $this->getItemsFromTarget(Input::get('product'));
+		$items = array_merge($items,$this->getItemsFromMeijer(Input::get('product')));
+		$items = array_merge($items,$this->getItemsFromWalmart(Input::get('product')));
 		return json_encode($items);
 	}
 	public function getItemsFromMeijer($itemName) {
